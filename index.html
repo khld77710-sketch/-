@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموسوعة الكاملة للاعب البلوت المحترف</title>
+    <style>
+        :root {
+            /* ألوان ملكية فخمة ومريحة للعين */
+            --bg-main: #0d1117; /* كحلي داكن جداً (قريب للأسود) */
+            --card-bg: #161b22; /* لون البطاقات أفتح بدرجة بسيطة */
+            --secondary: #d4af37; /* ذهبي كلاسيكي فخم (مب فاقع) */
+            --accent: #a38244; /* برونزي دافئ للتفاصيل */
+            --text-light: #e6edf3; /* أبيض مطفي مريح للقراءة */
+            --text-muted: #8b949e; /* رمادي أنيق للنصوص الثانوية */
+            --border-color: #30363d; /* لون الحدود الهادي */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            line-height: 1.8;
+            padding-bottom: 50px;
+        }
+
+        /* الهيدر الفخم */
+        header {
+            background: linear-gradient(135deg, #10141b 0%, #0d1117 100%);
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* بطاقة القسم الرئيسي */
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            border: 1px solid var(--border-color);
+            border-right: 5px solid var(--accent);
+            transition: border-color 0.3s ease;
+        }
+
+        /* تمييز الأقسام المهمة (الذهبية) */
+        .section-card.gold-style {
+            border-right: 5px solid var(--secondary);
+            background: linear-gradient(to bottom left, #1a1e24, #161b22);
+        }
+
+        .section-card h2 {
+            color: var(--secondary);
+            font-size: 1.7rem;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #c9d1d9;
+            margin: 20px 0 10px 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        /* القوائم النقطية الكلاسيكية */
+        ul {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        ul li {
+            position: relative;
+            padding-right: 25px;
+            margin-bottom: 14px;
+            color: var(--text-light);
+        }
+
+        ul li::before {
+            content: "▪";
+            position: absolute;
+            right: 0;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            top: -2px;
+        }
+
+        /* الجداول الأنيقة */
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #0d1117;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #1a2027;
+            color: var(--secondary);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #12161d;
+        }
+
+        tr:hover {
+            background-color: #1c2128;
+        }
+
+        /* شبكة الجوانب المقارنة */
+        .sub-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .sub-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sub-card {
+            background: #10141b;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        /* صناديق التنبيه (ستايل برونزي فخم) */
+        .tactical-box {
+            background: linear-gradient(to left, #1f1b14, #161b22);
+            border-right: 4px solid var(--secondary);
+            padding: 20px 25px;
+            border-radius: 6px;
+            margin: 25px 0;
+            border: 1px solid #3d3121;
+        }
+
+        .tactical-box strong {
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* الفوتر */
+        footer {
+            text-align: center;
+            padding: 35px;
+            background: #0d1117;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>الموسوعة الشاملة لقوانين البلوت 🃏</h1>
+        <p>مكتوبة بالتفصيل الممل بالعامية الإماراتية.. عشان تدش الميلس وأنت فاهم كل تكتيك</p>
+    </header>
+
+    <div class="container">
+
+        <!-- القسم الأول: الأساسيات والتوزيع -->
+        <div class="section-card">
+            <h2>1. البداية والتوزيع (قانون القعدة والورق)</h2>
+            <p>قبل لا نلمس الورق، لازم نضبط الجلسة والشروط الأساسية للعب النظيف:</p>
+            <ul>
+                <li><strong>التربيعة:</strong> يلسة من 4 لاعبين. كل اثنين متقابلين يثبتون مع بعض فريق (ربع) طول الصّكة. ممنوع الإشارات أو تغميز العيون، اللعب كله بالنظر على الساحة!</li>
+                <li><strong>الورق المحذوف:</strong> نيب كوتشينة عادية، ونفر منها الكروت الصغيرة (من الـ 2 لين الـ 6). اللي يبقى معنا بس 32 ورقة، وهي اللي بنلعب عليها.</li>
+                <li><strong>قص الورق والتوزيع الأول:</strong> الموزع يخلط الورق ويخلي اللاعب اللي على يساره "يقص" الورق. عقب يعطي كل لاعب 3 ورقات، وبعدين يلف ويعطي كل لاعب ورقتين زيادة. الحين كل لاعب في يده 5 ورقات بس.</li>
+                <li><strong>كشف ورق النص (الفيض):</strong> الموزع يفر ورقة وحدة في نص الطاولة مكشوفة للكل، وهنا تبدأ مرحلة "المشترى" أو الشراء.</li>
+            </ul>
+        </div>
+
+        <!-- القسم الثاني: قوانين الشراء بالتفصيل -->
+        <div class="section-card gold-style">
+            <h2>2. قوانين "المشترى" (الدور الأول، الثاني، والأشكل)</h2>
+            <p>هنا أهم مرحلة، لأنها تحدد نوع اللعب. الدوران يبدأ من اللاعب اللي على يسار الموزع ويمشي مع عقارب الساعة:</p>
+            
+            <h3>● الدور الأول (البيعة الأولى):</h3>
+            <p>الكل يطالع كروته الخمسة وطبيعة ورقة النص. الخيارات المتاحة في الدور الأول هي:</p>
+            <ul>
+                <li><strong>شراء حكم:</strong> إذا الورقة اللي في النص تعيبك وتباها تكون هي نوع "الحكم"، تقول "حكم" وتاخذها.</li>
+                <li><strong>شراء صن:</strong> إذا ورقك قوي (أصوف وعشرات) وما تبغي حكم، تروم تشتري الورقة "صن".</li>
+                <li><strong>طاف (باس):</strong> إذا ورقك تعبان وما تبغي تشتري، تقول "طاف" ويمر الدور للي بعدك.</li>
+            </ul>
+
+            <h3>● الدور الثاني (إذا الكل قال طاف في الأول):</h3>
+            <p>تلف الدائرة مرة ثانية على اللاعبين، وهنا الخيارات تتغير وتستوي أقوى:</p>
+            <ul>
+                <li><strong>حكم ثاني (نوع آخر):</strong> تروم تشتري الكرت اللي في النص لكن تختار له نوع حكم ثاني غير نوعه الأصلي (مثلاً الكرت شيريا، بس أنت تخليه سبيت).</li>
+                <li><strong>صن دور ثاني:</strong> تروم تشتريها صن إذا ما حد اشتراها في الأول.</li>
+                <li><strong>قانون الأشكل (تكتيك قوي):</strong> هالحركة يسويها بس اللاعب اللي يالِس على يسار الموزع (الأول) أو اللاعب اللي على يمين الموزع (الثالث). شو يعني؟ يعني تشتري الكرت "صن" بس ما تاخذه حق نفسك، الكرت يروح كاش حق ربيعك (الفريق مالك) عشان يقوى ورقه، وأنت تاخذ الكرت الثالث من التوزيع.</li>
+            </ul>
+
+            <div class="tactical-box">
+                <strong>💡 قانون السيطرة (الصن يكسر الحكم):</strong>
+                في مرحلة الشراء، لو لاعب قبلك قال "بشتري حكم"، وأنت ورقك فنان وتباها "صن"، تروم تقول "صن" فوقه وتطير عليه البيعة، لأن الصن دايماً أقوى وله الأولوية. لكن العكس ممنوع؛ لو حد اشترى صن، محد يروم يكسره بحكم!
+            </div>
+            
+            <p><strong>تكملة التوزيع:</strong> عقب ما يثبت المشترى على حد، الموزع يوزع باقي الورق: اللي اشترى ياخذ ورقة النص ويوزعون له ورقتين زيادة، والباجين ياخذون 3 ورقات. الحين كل لاعب يملك <strong>8 ورقات</strong> ويبدأ اللعب الفعلي.</p>
+        </div>
+
+        <!-- القسم الثالث: قوة الصن ضد الحكم والجداول -->
+        <div class="section-card">
+            <h2>3. ليش الصن هو ملك اللعبة؟ وجداول القوة</h2>
+            <p>بالتفصيل، الصن هو اللعب الأساسي والمحترف لأن حساباته ضخمة وما فيه حظ وغدرات نفس الحكم:</p>
+            <ul>
+                <li><strong>جولة الصن بـ 26 نقطة:</strong> مجموع نقاط كروت الصن الأساسية 130 نقطة، نقسمها على 10 وندبلها، فتطلع الجولة بـ 26 نقطة.</li>
+                <li><strong>جولة الحكم بـ 16 نقطة:</strong> مجموع نقاطها مع الأرض 162 نقطة، نقسمها على 10 بدون تدبيل، فتطلع بـ 16 نقطة بس.</li>
+                <li><strong>المشاريع دبل:</strong> أي مشروع (سرى، خمسين، مية) قيمته في الصن دبل قيمته في الحكم! ومشيناها في الجدول تحت.</li>
+            </ul>
+
+            <div class="sub-grid">
+                <!-- جدول الصن -->
+                <div class="sub-card">
+                    <h3>ترتيب ونقاط "الصن"</h3>
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>الترتيب</th>
+                                <th>الكرت</th>
+                                <th>النقاط</th>
+                            </tr>
+                            <tr><td>1</td><td><strong>الأص (A)</strong></td><td>11 نقطة</td></tr>
+                            <tr><td>2</td><td><strong>العشرة (10)</strong></td><td>10 نقاط</td></tr>
+                            <tr><td>3</td><td><strong>الشايب (K)</strong></td><td>4 نقاط</td></tr>
+                            <tr><td>4</td><td><strong>البنت (Q)</strong></td><td>3 نقاط</td></tr>
+                            <tr><td>5</td><td><strong>الولد (J)</strong></td><td>نقطتين</td></tr>
+                            <tr><td>6</td><td><strong>9 ، 8 ، 7</strong></td><td>صفر</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- جدول الحكم -->
+                <div class="sub-card">
+                    <h3>ترتيب ونقاط "الحكم"</h3>
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>الترتيب</th>
+                                <th>الكرت</th>
+                                <th>النقاط</th>
+                            </tr>
+                            <tr><td>1</td><td><strong>الولد (J)</strong></td><td>20 نقطة</td></tr>
+                            <tr><td>2</td><td><strong>التسعة (9)</strong></td><td>14 نقطة</td></tr>
+                            <tr><td>3</td><td><strong>الأص (A)</strong></td><td>11 نقطة</td></tr>
+                            <tr><td>4</td><td><strong>العشرة (10)</strong></td><td>10 نقاط</td></tr>
+                            <tr><td>5</td><td><strong>الشايب (K)</strong></td><td>4 نقاط</td></tr>
+                            <tr><td>6</td><td><strong>البنت (Q)</strong></td><td>3 نقاط</td></tr>
+                            <tr><td>7</td><td><strong>8 ، 7</strong></td><td>صفر</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- القسم الرابع: قوانين ساحة اللعب والدق -->
+        <div class="section-card gold-style">
+            <h2>4. قوانين الساحة ورمي الورق (قوانين الدق)</h2>
+            <p>أثناء اللعب، هناك قوانين صارمة وعقوبات لو حد غلط في رمي الكرت:</p>
+            <ul>
+                <li><strong>قانون الممشى (الالتزام بالنوع):</strong> اللاعب الأول يفر كرت (مثلاً ديمن ♦)، الباجين كلهم غصبن عنهم يفرون ديمن. لو عندك ديمن وفررت نوع ثاني تعتبر غاش وتخسرون الجولة كاملة!</li>
+                <li><strong>قانون القطع (في لعب الحكم بس):</strong> لو لاعب فر كرت ديمن وأنت ما عندك هالنّوع في يدك، اللعبة غصب تخليك "تقطع بحكم" عشان تاخذ الخمة، إلا لو ربيعك (فريقك) هو اللي خام الورق ومسيطر على الأكلة، هنا يروم ما تقطع وتفر أي كرت حشو.</li>
+                <li><strong>الخمة والأكلة التالية:</strong> اللي يفر الكرت الأقوى (حسب الجداول فوق) هو اللي يلم الكروت الأربعة الصوبين، وهو اللي يفر الكرت اليديد حق الأكلة اللي عقبها.</li>
+                <li><strong>أكلة الأرض (العشرة الأخيرة):</strong> آخر أكلة في الجولة (الكرت رقم 8) عليها مكافأة قوية قيمتها 10 نقاط زيادة تضاف للي يلقطها.</li>
+            </ul>
+        </div>
+
+        <!-- القسم الخامس: المشاريع بالتفصيل -->
+        <div class="section-card">
+            <h2>5. قوانين المشاريع وحساب قيمتها</h2>
+            <p>المشاريع تكشف عنها في الأكلة الأولى بس عشان تزيد نقاط فريقك. وتذكر دايماً: <strong>المشروع الأقوى يمسح مشروع الخصم!</strong></p>
+            
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>المشروع</th>
+                        <th>شروطه بالتفصيل</th>
+                        <th>في الصن</th>
+                        <th>في الحكم</th>
+                    </tr>
+                    <tr><td><strong>السِّرَى</strong></td><td>3 كروت ورى بعض متسلسلة ونفس النوع (مثال: 7, 8, 9)</td><td>4 نقاط</td><td>نقطتين</td></tr>
+                    <tr><td><strong>الخمسين</strong></td><td>4 كروت ورى بعض متسلسلة ونفس النوع</td><td>10 نقاط</td><td>5 نقاط</td></tr>
+                    <tr><td><strong>المية</strong></td><td>5 كروت متسلسلة، أو 4 كروت متشابهة بالقيمة (4 شواب أو 4 بنات أو 4 عشرات)</td><td>20 نقطة</td><td>10 نقاط</td></tr>
+                    <tr><td><strong>الأربع مية (400)</strong></td><td>تكون عندك 4 أصوف (A) مع بعض في يدك. <strong>تشتغل في الصن بس!</strong></td><td>40 نقطة</td><td>ممنوع</td></tr>
+                </table>
+            </div>
+
+            <div class="tactical-box">
+                <strong>قانون مشروع البلوت الخاص:</strong>
+                إذا عندك (شايب وبنت الحكم) ويا بعض، هالمشروع محمي وما يلتغي حتى لو الخصم عنده مشاريع أقوى. طريقته: وأنت تفر الشايب تقول "بلوت"، وعقب تفر البنت وتقول "بنت"، وتاخذون عليها نقطتين مضمونات.
+            </div>
+        </div>
+
+        <!-- القسم السادس: الحساب والربح والخسارة -->
+        <div class="section-card gold-style">
+            <h2>6. قانون القيد وحساب الأبناط (الربح والخسارة)</h2>
+            <p>عقب ما تخلص الـ 8 ورقات كاملة، يلس الفريقين يحسبون النقاط اللي جمعوها بالورقة والقلم:</p>
+            <ul>
+                <li><strong>طريقة الحساب:</strong> نجمع أبناط الكروت اللي خميناها + نقاط المشاريع المقبولة + الأرض (لو أخذتوا الأكلة الأخيرة). الناتج نقسمه على 10.</li>
+                <li><strong>جبر الكسر:</strong> في البلوت ما في نص نقطة. إذا الحساب آخره 5 أو أكثر، نجبرها لفوق (مثلاً: 125 تتقيد 13). وإذا أقل من 5، تنزل لتحت (مثلاً: 124 تتقيد 12).</li>
+                <li><strong>شرط النجاح (الشارب لازم يجيب النص):</strong> الفريق اللي اشترى الكرت من النص في البداية، لازم يجيب "نصف النقاط الإجمالية للجولة + 1" على الأقل عشان يعتبر ناجح.</li>
+                <li><strong>خسر اللعب (الخسارة الكاملة):</strong> لو الفريق الشاري ياب نقاط أقل من الفريق الخصم، يعتبر "خسر اللعب". عقوبتها قاسية جداً: كل نقاط الجولة + نقاط مشاريع الفريقين تروح بالكامل كاش حق الفريق الخصم، والفريق الشاري ياخذ "صفر"!</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>موقع دليل البلوت المفصل للمحترفين - صُنع للميلس الإماراتي 🇦🇪 2026</p>
+    </footer>
+
+</body>
+</html>
